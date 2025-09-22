@@ -18,9 +18,6 @@ function lanzarNombre(nombre) {
 
 let indexNombre = 0;
 setInterval(() => {
-  if (indexNombre < nombres.length) {
-    lanzarNombre(nombres[indexNombre]);
-    indexNombre++;
-  }
-}, 1200); // cada 1.2 segundos
-
+  lanzarNombre(nombres[indexNombre]);
+  indexNombre = (indexNombre + 1) % nombres.length;
+}, 1200);
