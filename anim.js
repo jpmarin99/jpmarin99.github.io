@@ -1,15 +1,10 @@
-<audio controls autoplay>
-  <source src="flores-amarillas.mp3" type="audio/mpeg">
-</audio>
-
-<script>
 // Sincronizar las letras con la canción
 var audio = document.querySelector("audio");
 var lyrics = document.querySelector("#lyrics");
 
-// Array con las líneas de la canción y el segundo en que aparecen
+// Array de objetos que contiene cada línea y su tiempo de aparición en segundos
 var lyricsData = [
-  { text: "Ella sabía que algún día pasaría", time: 10 },
+ { text: "Ella sabía que algún día pasaría", time: 10 },
   { text: "Que vendría a buscarla con sus flores amarillas", time: 18 },
   { text: "Ella sabía que él sabía", time: 26 },
   { text: "Que algún día pasaría", time: 31 },
@@ -41,55 +36,32 @@ function updateLyrics() {
   );
 
   if (currentLine) {
-    var fadeInDuration = 0.3; // Duración del efecto de aparición
+    // Calcula la opacidad basada en el tiempo en la línea actual
+    var fadeInDuration = 0.1; // Duración del efecto de aparición en segundos
     var opacity = Math.min(1, (time - currentLine.time) / fadeInDuration);
 
+    // Aplica el efecto de aparición
     lyrics.style.opacity = opacity;
     lyrics.innerHTML = currentLine.text;
   } else {
+    // Restablece la opacidad y el contenido si no hay una línea actual
     lyrics.style.opacity = 0;
     lyrics.innerHTML = "";
   }
 }
 
-setInterval(updateLyrics, 500);
+setInterval(updateLyrics, 1000);
 
+//funcion titulo
 // Función para ocultar el título después de 216 segundos
 function ocultarTitulo() {
   var titulo = document.querySelector(".titulo");
-  titulo.style.animation = "fadeOut 3s ease-in-out forwards";
+  titulo.style.animation =
+    "fadeOut 3s ease-in-out forwards"; /* Duración y función de temporización de la desaparición */
   setTimeout(function () {
     titulo.style.display = "none";
-  }, 3000);
+  }, 3000); // Espera 3 segundos antes de ocultar completamente
 }
 
-// Llama a la función después de 216 segundos (216000 ms)
+// Llama a la función después de 216 segundos (216,000 milisegundos)
 setTimeout(ocultarTitulo, 216000);
-</script>
-
-<style>
-body {
-  text-align: center;
-  background: #fffbe6;
-  font-family: 'Arial', sans-serif;
-}
-#lyrics {
-  font-size: 24px;
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-.titulo {
-  font-size: 28px;
-  margin: 20px;
-  animation: fadeIn 3s ease-in-out;
-}
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style>
