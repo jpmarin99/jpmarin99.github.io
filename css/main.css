@@ -1403,6 +1403,16 @@ body {
     opacity: 0;
   }
 }
+.nombre-flotante {
+  position: absolute;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  pointer-events: none;
+  animation: light-ans 6s ease-in-out forwards;
+  white-space: nowrap;
+  text-shadow: 0 0 2px #000;
+}
 @-webkit-keyframes light-ans {
   0% {
     opacity: 0;
