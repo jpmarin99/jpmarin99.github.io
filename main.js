@@ -2,6 +2,9 @@ onload = () =>{
     document.body.classList.remove("container");
 };
 
+const nombresOriginales = ["Wendy", "Andy", "Mariana", "Vicky", "Angelly", "Liz", "Karime","Amai","Mamá Eve"];
+const nombres = [...nombresOriginales].sort(() => Math.random() - 0.5); // Mezcla aleatoria
+
 function lanzarNombre(nombre) {
   const div = document.createElement('div');
   div.className = 'nombre-flotante';
@@ -12,4 +15,12 @@ function lanzarNombre(nombre) {
 
   setTimeout(() => div.remove(), 6000); // Elimina después de la animación
 }
+
+let indexNombre = 0;
+setInterval(() => {
+  if (indexNombre < nombres.length) {
+    lanzarNombre(nombres[indexNombre]);
+    indexNombre++;
+  }
+}, 1200); // cada 1.2 segundos
 
