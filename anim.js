@@ -2,9 +2,6 @@
   <source src="flores-amarillas.mp3" type="audio/mpeg">
 </audio>
 
-<div class="titulo">🌼 Flores Amarillas 🌼</div>
-<div id="lyrics"></div>
-
 <script>
 // Sincronizar las letras con la canción
 var audio = document.querySelector("audio");
