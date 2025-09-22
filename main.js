@@ -2,7 +2,7 @@ onload = () =>{
     document.body.classList.remove("container");
 };
 
-const nombresOriginales = ["Wendy", "Andy", "Mariana", "Vicky", "Angelly", "Liz", "Karime","Amai","Mamá Eve"];
+const nombresOriginales = ["Wendy", "Andy", "Mariana","Mónica", "Vicky", "Angelly", "Liz", "Karime","Amai","Montse","Mamá Eve"];
 const nombres = [...nombresOriginales].sort(() => Math.random() - 0.5); // Mezcla aleatoria
 
 function lanzarNombre(nombre) {
